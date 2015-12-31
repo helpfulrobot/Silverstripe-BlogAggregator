@@ -18,14 +18,15 @@ class BlogAggregator extends BlogTree
 
     private static $hide_ancestor = 'BlogTree';
 
-    public function loadDescendantBlogHolderIDListInto(&$idList) {
+    public function loadDescendantBlogHolderIDListInto(&$idList)
+    {
         $blogHolders = BlogHolder::get();
         if (count($blogHolders)) {
-            foreach($blogHolders as $holder) {
-                if(!in_array($holder->ID, $idList)) {
+            foreach ($blogHolders as $holder) {
+                if (!in_array($holder->ID, $idList)) {
                     $idList[] = $holder->ID;
                 }
             }
         }
     }
-} 
+}
